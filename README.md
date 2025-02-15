@@ -131,29 +131,38 @@ Configure your AWS credentials using environment variables (AWS_ACCESS_KEY_ID an
 ## Deployment Steps
 
 **Clone the Repository:**
-'''
+```
 git clone https://github.com/adoomabd/AdamAbdelrahim-Terraform-ECS-Project.git
-'''
+```
+
 **Navigate to the Project Directory:**
 
-'''
+```
+
 cd AdamAbdelrahim-Terraform-ECS-Project
-'''
+```
+
 
 **Initialize Terraform**:
-'''
+```
+
 terraform init
-'''
+```
+
 
 **Review the Terraform Plan:**
 
-'''
+```
+
 terraform plan
-'''
+```
+
 **Apply the Configuration:**
-'''
+```
+
 terraform apply
-'''
+```
+
 Confirm the changes by typing yes when prompted.
 
 **Access the Application:**
@@ -168,9 +177,11 @@ Refer to comments in .tf files for guidance on specific Terraform functions and 
 
 To destroy the infrastructure and clean up resources, run:
 
-'''
+```
+
 terraform destroy
-'''
+```
+
 
 
 Credits
