@@ -1,6 +1,6 @@
 # Deploying a Dynamic Web Application on AWS with Terraform, Docker, Amazon ECR, and ECS
 This repository provides Terraform modules to deploy and host a dynamic web application on Amazon Web Services (AWS) using an infrastructure-as-code (IaC) approach. The project integrates several powerful technologies to create a scalable, secure, and reproducible infrastructure:
-![alt text](<image/Blank diagram (1).png>)
+![alt text](<image/Blank diagram.png>)
 
 **Terraform:** Automates the provisioning and management of AWS resources, ensuring consistency and reproducibility.
 
