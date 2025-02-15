@@ -9,19 +9,26 @@ resource "aws_db_subnet_group" "database_subnet_group" {
   }
 }
 
-# create the rds instance
+data "aws_secretsmanager_secret_version" "db_credentials" {
+  secret_id = "dev-rds-credentials"  # Name of the secret you created manually
+}
+
+locals {
+  db_credentials = jsondecode(data.aws_secretsmanager_secret_version.db_credentials.secret_string)
+}
+
 resource "aws_db_instance" "db_instance" {
   engine                 = "mysql"
   engine_version         = "8.0.40"
   multi_az               = false
   identifier             = "dev-rds-instance"
-  username               = "bahram"      # create username
-  password               = "bahram123"   # create password
-  instance_class         = "db.t3.micro" # review what class works best for you 
+  username               = local.db_credentials.username
+  password               = local.db_credentials.password
+  instance_class         = "db.t3.micro"
   allocated_storage      = 200
   db_subnet_group_name   = aws_db_subnet_group.database_subnet_group.name
   vpc_security_group_ids = [aws_security_group.database_security_group.id]
   availability_zone      = data.aws_availability_zones.available_zones.names[0]
   db_name                = "applicationdb"
-  skip_final_snapshot    = true #this will make it so an additional snapshot is not created after every stoppage of this instance
+  skip_final_snapshot    = true
 }
