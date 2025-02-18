@@ -1,117 +1,122 @@
-# Environment Variables
+# environment variables
 variable "region" {
-    description = "region to create resources"
-    type        = string
+  description = "region to create resources"
+  type        = string
 }
 
 variable "project_name" {
-    description = "your project name"
-    type        = string
+  description = "project name"
+  type        = string
 }
 
 variable "environment" {
-    description = "your environment"
-    type        = string
+  description = "environment"
+  type        = string
 }
 
-# VPC variables
+# vpc variables
 variable "vpc_cidr" {
-    description = "your vpc cidr block"
-    type        = string
+  description = "vpc cidr block"
+  type        = string
 }
 
 variable "public_subnet_az1_cidr" {
-    description = "your public subnet az1 cidr block"
-    type        = string
+  description = "public subnet az1 cidr block"
+  type        = string
 }
 
 variable "public_subnet_az2_cidr" {
-    description = "your public subnet az2 cidr block"
-    type        = string
+  description = "public subnet az2 cidr block"
+  type        = string
 }
 
 variable "private_app_subnet_az1_cidr" {
-    description = "your private app subnet az1 cidr block"
-    type        = string
+  description = "private app subnet az1 cidr block"
+  type        = string
 }
 
 variable "private_app_subnet_az2_cidr" {
-    description = "your private app subnet az2 cidr block"
-    type        = string
+  description = "private app subnet az2 cidr block"
+  type        = string
 }
 
 variable "private_data_subnet_az1_cidr" {
-    description = "your private data subnet az1 cidr block"
-    type        = string
+  description = "private data subnet az1 cidr block"
+  type        = string
 }
 
 variable "private_data_subnet_az2_cidr" {
-    description = "your private data subnet az2 cidr block"
-    type        = string
+  description = "private data subnet az2 cidr block"
+  type        = string
 }
 
-# Security-Groups Variables
-variable "ssh_location" {
-    description = "your IP addressed used for ssh into server"
-    type        = string
+# secrets manager variables
+variable "secrets_manager_secret_name" {
+  description = "the secrets manager secret name"
+  type        = string
 }
 
-# RDS variables
-variable "database_snapshot_identifier" {
-    description = "your database snapshot name"
-    type        = string
-}
-
-variable "database_instance_class" {
-    description = "your database instance type"
-    type        = string
+# rds variables
+variable "multi_az_deployment" {
+  description = "create a standby db instance"
+  type        = bool
 }
 
 variable "database_instance_identifier" {
-    description = "your database instance identifier"
-    type        = string
+  description = "database instance identifier"
+  type        = string
 }
 
-variable "multi_az_deployment" {
-    description = "your create a standby db instance"
-    type        = bool
+variable "database_instance_class" {
+  description = "database instance type"
+  type        = string
 }
 
-# ACM variables
+variable "publicly_accessible" {
+  description = "controls if instance is publicly accessible"
+  type        = bool
+}
+
+# acm variables
 variable "domain_name" {
-    description = "your domain name"
-    type        = string
+  description = "domain name"
+  type        = string
 }
 
 variable "alternative_names" {
-    description = "your sub domain name for ACM"
-    type        = string
+  description = "sub domain name"
+  type        = string
 }
 
-#s3 Variables
+# s3 variables
 variable "env_file_bucket_name" {
-    description = "your S3 bucket name"
-    type        = string
+  description = "s3 bucket name"
+  type        = string
 }
 
 variable "env_file_name" {
-    description = "your env file name"
-    type        = string
+  description = "env file name"
+  type        = string
 }
 
-#ECS Variables
+# ecs variables
 variable "architecture" {
-    description = "your ecs cpu architecture"
-    type        = string
+  description = "ecs cpu architecture"
+  type        = string
 }
 
-variable "container_image" {
-    description = "your container image uri"
-    type        = string
+variable "image_name" {
+  description = "the docker image name"
+  type        = string
 }
 
-#Route 53 Variables
+variable "image_tag" {
+  description = "the docker image tag"
+  type        = string
+}
+
+# route-53 variables
 variable "record_name" {
-    description = "your sub domain name for Route 53"
-    type        = string
+  description = "sub domain name"
+  type        = string
 }

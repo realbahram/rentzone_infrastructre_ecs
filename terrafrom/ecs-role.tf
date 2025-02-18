@@ -36,7 +36,7 @@ data "aws_iam_policy_document" "ecs_task_execution_policy_document" {
   }
 
   statement {
-    actions    = [
+    actions = [
       "s3:GetBucketLocation"
     ]
 
@@ -54,8 +54,8 @@ resource "aws_iam_policy" "ecs_task_execution_policy" {
 
 # create an iam role
 resource "aws_iam_role" "ecs_task_execution_role" {
-  name                = "${var.project_name}-${var.environment}-ecs-task-execution-role"
-  assume_role_policy  = data.aws_iam_policy_document.assume_role_policy.json
+  name               = "${var.project_name}-${var.environment}-ecs-task-execution-role"
+  assume_role_policy = data.aws_iam_policy_document.assume_role_policy.json
 }
 
 # attach ecs task execution policy to the iam role

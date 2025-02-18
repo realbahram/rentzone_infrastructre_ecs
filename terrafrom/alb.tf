@@ -3,7 +3,7 @@ resource "aws_lb" "application_load_balancer" {
   name                       = "${var.project_name}-${var.environment}-alb"
   internal                   = false #internet facing
   load_balancer_type         = "application"
-  security_groups            = [aws_security_group.database_security_group.id]
+  security_groups            = [aws_security_group.alb_security_group.id]
   subnets                    = [aws_subnet.public_subnet_az1.id, aws_subnet.public_subnet_az2.id]
   enable_deletion_protection = false
 
